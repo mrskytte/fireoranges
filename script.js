@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "@babel/polyfill";
 import { drawSVG } from "./morph";
 ("use strict");
@@ -20,3 +21,6 @@ async function getSVG() {
 
   drawSVG(originalPath, innerSVG, halfBox, catOutline, catInline, parentSVG);
 }
+=======
+document.querySelector("h1").textContent = "Hey Daddy";
+>>>>>>> 27145621c93ab4d7f0e2c85249383fdc3a1ed870

@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 import "@babel/polyfill";
-import { drawSVG } from "./morph";
+import { dragDisable } from "d3";
 ("use strict");
 
 window.addEventListener("DOMContentLoaded", getSVG);
@@ -21,6 +20,3 @@ async function getSVG() {
 
   drawSVG(originalPath, innerSVG, halfBox, catOutline, catInline, parentSVG);
 }
-=======
-document.querySelector("h1").textContent = "Hey Daddy";
->>>>>>> 27145621c93ab4d7f0e2c85249383fdc3a1ed870

@@ -1,0 +1,33 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "start": "parcel *.html --open",
+    "build": "parcel build *.html --public-url ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrskytte/fireoranges.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrskytte/fireoranges/issues"
+  },
+  "homepage": "https://github.com/mrskytte/fireoranges#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-static-files-copy": "^2.3.1",
+    "sass": "^1.26.3"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.7",
+    "@babel/runtime": "^7.8.7",
+    "package.json": "^2.0.1",
+    "svg": "^0.1.0"
+  }
+}

@@ -8,24 +8,34 @@ window.addEventListener("DOMContentLoaded", getSVG);
 document.querySelector("h1").textContent = "Hey Daddy";
 
 async function getSVG() {
-  const response = await fetch("./svg/girl.svg");
-  const girlSVG = await response.text();
-  document.querySelector("#svg-container").innerHTML = girlSVG;
-  const girlOutline = document.querySelector("#Outline path").getAttribute("d");
-  const test = "M100,100 L200,100 L150,200Z";
+  const response = await fetch("./svg/cat.svg");
+  const catSVG = await response.text();
+  document.querySelector("#svg-container").innerHTML = catSVG;
+  const catInline = document.querySelectorAll(".path");
+  const catOutline = document.querySelector("#outline").getAttribute("d");
   const halfBox = "M10 10 L 10 300 300 300 Q 250 150 300 10";
-  console.log(girlOutline);
-  drawGirl(halfBox, girlOutline);
-}
+  drawCat(halfBox, catOutline);
+  function drawCat(originalLine, newLine) {
+    let interpolator = flubber.interpolate(originalLine, newLine);
 
-function drawGirl(originalLine, newLine) {
-  let myPathElement = document.querySelector("#changeThis");
-  let interpolator = flubber.interpolate(originalLine, newLine);
+    d3.select("path")
+      .transition()
+      .duration(1000)
+      .attrTween("d", function() {
+        return interpolator;
+      })
+      .on("end", drawRest);
+  }
 
-  d3.select("path")
-    .transition()
-    .duration(1000)
-    .attrTween("d", function() {
-      return interpolator;
+  function drawRest() {
+    console.log("draw some more now");
+    const innerSVG = document.querySelector("#pasteHere");
+    catInline.forEach(oneElement => {
+      innerSVG.appendChild(oneElement);
     });
+    setTimeout(
+      () => document.querySelector("svg").classList.add("active"),
+      100
+    );
+  }
 }

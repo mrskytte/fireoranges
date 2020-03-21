@@ -7,18 +7,23 @@ window.addEventListener("DOMContentLoaded", getSVG);
 async function getSVG() {
   const response = await fetch("./svg/car.svg");
   const carSVG = await response.text();
-  document.querySelector("#main-svg").innerHTML = carSVG;
 
   window.addEventListener("click", drawSVG);
-  let counter = 0;
+
   function drawSVG() {
-    if (counter === 0) {
-      document.querySelector(".car").classList.remove("active");
-      counter++;
-    } else {
-      document.querySelector(".car").classList.add("active");
-      counter = 0;
-    }
+    document.querySelector(".firstLine").classList.remove("active");
+    // document.querySelector(".car").classList.add("active");
+    document
+      .querySelector(".firstLine")
+      .addEventListener("transitionend", drawNewSVG);
+  }
+
+  function drawNewSVG() {
+    document.querySelector("#main-svg").innerHTML = carSVG;
+    setTimeout(
+      () => document.querySelector(".car").classList.add("active"),
+      200
+    );
   }
 
   // const parentSVG = document.querySelector("svg");

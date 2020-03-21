@@ -4,16 +4,18 @@ let d3 = require("d3");
 ("use strict");
 
 export function drawSVG(
-  originalPath,
+  originalDOMPath,
   innerSVG,
   originalLine,
   newOutline,
-  newInline,
-  svgContainer
+  newOutlineClass,
+  SVGDetailPaths,
+  SVGContainer,
+  SVGName
 ) {
   let interpolator = flubber.interpolate(originalLine, newOutline);
 
-  d3.select(originalPath)
+  d3.select(originalDOMPath)
     .transition()
     .duration(1000)
     .attrTween("d", function() {
@@ -23,9 +25,14 @@ export function drawSVG(
 
   function drawRest() {
     console.log("draw some more now");
-    newInline.forEach(oneElement => {
+    SVGDetailPaths.forEach(oneElement => {
       innerSVG.appendChild(oneElement);
     });
-    setTimeout(() => svgContainer.classList.add("active"), 100);
+    SVGContainer.classList.add(SVGName);
+    originalDOMPath.classList.add(newOutlineClass);
+    setTimeout(() => {
+      SVGContainer.classList.add("active");
+      originalDOMPath.classList.add(newOutlineClass);
+    }, 110);
   }
 }

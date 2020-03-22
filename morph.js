@@ -20,8 +20,8 @@ export function drawSVG(
     .duration(1000)
     .attrTween("d", function() {
       return interpolator;
-    })
-    .on("end", drawRest);
+    });
+  drawRest();
 
   function drawRest() {
     console.log("draw some more now");

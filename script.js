@@ -7,6 +7,7 @@ window.addEventListener("DOMContentLoaded", getSVGs);
 
 let parentSVG;
 const SVGs = [];
+
 let timelineSVG;
 let kiteSVG;
 let bulbSVG;
@@ -41,10 +42,17 @@ async function getSVG(url) {
   return SVG;
 }
 
+const activeButtons = {
+  firstCircle: true,
+  secondCircle: false,
+  thirdCircle: false,
+  fourthCircle: false
+};
+
 function init() {
   appendSVGs();
   drawInitialTimeline();
-  prepareEventListener("#first-circle", tranformSVG, "kite", kiteSVG);
+  prepareTimeline();
 }
 
 function appendSVGs() {
@@ -65,34 +73,57 @@ function drawInitialTimeline() {
   ).innerHTML;
   parentSVG = document.querySelector("#main-svg svg");
   parentSVG.setAttribute("id", "primarySVG");
-  setTimeout(() => parentSVG.classList.add("active"), 100);
+  setTimeout(() => {
+    parentSVG.classList.add("active");
+    document
+      .querySelector("#main-svg svg #outline")
+      .addEventListener("transitionend", () => {
+        document.querySelector("#first-circle").classList.add("active");
+      });
+  }, 100);
 }
 
-function prepareEventListener(point, callback, event, eventSVG) {
+function prepareTimeline() {
+  if (activeButtons.firstCircle) {
+    prepareEventListener("#first-circle", "kite", kiteSVG);
+  }
+  if (activeButtons.secondCircle) {
+    prepareEventListener("#second-circle", "bulb", bulbSVG);
+  }
+  if (activeButtons.thirdCircle) {
+    prepareEventListener("#third-circle", "cityscape", cityscapeSVG);
+  }
+  if (activeButtons.fourthCircle) {
+    prepareEventListener("#fourth-circle", "car", carSVG);
+  }
+}
+
+function prepareEventListener(point, event, eventSVG) {
   document
     .querySelector(point)
-    .addEventListener("click", () => callback(event, eventSVG));
-  document
-    .querySelector("#main-svg svg #outline")
-    .addEventListener("transitionend", () => {
+    .addEventListener("click", () => tranformSVG(event, eventSVG));
+  document.querySelector(point).addEventListener(
+    "transitionend",
+    () => {
       document.querySelector(point).classList.add("active");
-    });
+    },
+    100
+  );
 }
 
 document.querySelector("#timeline-btn").addEventListener("click", () => {
   tranformSVG("timeline", timelineSVG);
-});
-document.querySelector("#kite-btn").addEventListener("click", () => {
-  tranformSVG("kite", kiteSVG);
-});
-document.querySelector("#car-btn").addEventListener("click", () => {
-  tranformSVG("car", carSVG);
-});
-document.querySelector("#city-btn").addEventListener("click", () => {
-  tranformSVG("cityscape", cityscapeSVG);
-});
-document.querySelector("#bulb-btn").addEventListener("click", () => {
-  tranformSVG("bulb", bulbSVG);
+  if (activeButtons.thirdCircle) {
+    console.log("called");
+    activeButtons.fourthCircle = true;
+  } else if (activeButtons.secondCircle) {
+    console.log("called");
+    activeButtons.thirdCircle = true;
+  } else if (activeButtons.firstCircle) {
+    console.log("called");
+    activeButtons.secondCircle = true;
+  }
+  prepareTimeline();
 });
 
 function tranformSVG(selectedEvent, eventSVG) {

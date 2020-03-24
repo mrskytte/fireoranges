@@ -7,6 +7,11 @@ window.addEventListener("DOMContentLoaded", getSVGs);
 
 let parentSVG;
 const SVGs = [];
+let timelineSVG;
+let kiteSVG;
+let bulbSVG;
+let cityscapeSVG;
+let carSVG;
 
 function getSVGs() {
   const SVGArray = async () => {
@@ -30,11 +35,16 @@ function getSVGs() {
     init();
   });
 }
+async function getSVG(url) {
+  const response = await fetch(url);
+  const SVG = await response.text();
+  return SVG;
+}
 
 function init() {
   appendSVGs();
   drawInitialTimeline();
-  prepareEventListener("#first-circle", tranformSVG, "kite");
+  prepareEventListener("#first-circle", tranformSVG, "kite", kiteSVG);
 }
 
 function appendSVGs() {
@@ -42,6 +52,11 @@ function appendSVGs() {
     document.querySelector(`.container:nth-child(${i + 1})`).innerHTML =
       SVGs[i - 1];
   }
+  timelineSVG = SVGs[0];
+  kiteSVG = SVGs[1];
+  bulbSVG = SVGs[2];
+  cityscapeSVG = SVGs[3];
+  carSVG = SVGs[4];
 }
 
 function drawInitialTimeline() {
@@ -53,11 +68,10 @@ function drawInitialTimeline() {
   setTimeout(() => parentSVG.classList.add("active"), 100);
 }
 
-function prepareEventListener(point, callback, event) {
-  console.log("called");
+function prepareEventListener(point, callback, event, eventSVG) {
   document
     .querySelector(point)
-    .addEventListener("click", () => callback(event));
+    .addEventListener("click", () => callback(event, eventSVG));
   document
     .querySelector("#main-svg svg #outline")
     .addEventListener("transitionend", () => {
@@ -66,22 +80,23 @@ function prepareEventListener(point, callback, event) {
 }
 
 document.querySelector("#timeline-btn").addEventListener("click", () => {
-  tranformSVG("timeline");
+  tranformSVG("timeline", timelineSVG);
 });
 document.querySelector("#kite-btn").addEventListener("click", () => {
-  tranformSVG("kite");
+  tranformSVG("kite", kiteSVG);
 });
 document.querySelector("#car-btn").addEventListener("click", () => {
-  tranformSVG("car");
+  tranformSVG("car", carSVG);
 });
 document.querySelector("#city-btn").addEventListener("click", () => {
-  tranformSVG("cityscape");
+  tranformSVG("cityscape", cityscapeSVG);
 });
 document.querySelector("#bulb-btn").addEventListener("click", () => {
-  tranformSVG("bulb");
+  tranformSVG("bulb", bulbSVG);
 });
 
-function tranformSVG(selectedEvent) {
+function tranformSVG(selectedEvent, eventSVG) {
+  console.log(eventSVG);
   parentSVG.classList.remove("active");
   const originalPath = document.querySelector("#main-svg #outline");
   originalPath.classList.remove("svg-elem-1");
@@ -93,7 +108,6 @@ function tranformSVG(selectedEvent) {
   const innerPaths = document.querySelectorAll(`#${selectedEvent} .path`);
   const outlineClass = document.querySelector(`#${selectedEvent} #outline`)
     .classList[0];
-  console.log(document.querySelector(`#${selectedEvent} #outline`).classList);
   const newStyle = document.querySelector(`#${selectedEvent} style`).innerHTML;
 
   morphSVG(originalPath, originalOutline, newOutline);
@@ -106,6 +120,8 @@ function tranformSVG(selectedEvent) {
     outlineClass,
     newStyle
   );
+  console.log(eventSVG);
+  document.querySelector(`#${selectedEvent}-container`).innerHTML = eventSVG;
 }
 
 function drawSVG(
@@ -123,14 +139,9 @@ function drawSVG(
   });
   parentSVG.classList.add(SVGName);
   parentSVG.classList.remove(parentSVG.classList[0]);
+  originalDOMPath.removeAttribute("class");
   originalDOMPath.classList.add(newOutlineClass);
   setTimeout(() => {
     parentSVG.classList.add("active");
   });
-}
-
-async function getSVG(url) {
-  const response = await fetch(url);
-  const SVG = await response.text();
-  return SVG;
 }

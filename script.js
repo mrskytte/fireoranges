@@ -1,5 +1,7 @@
 import "@babel/polyfill";
-import { tranformSVG } from "./tranformSVG";
+import {
+  tranformSVG
+} from "./tranformSVG";
 ("use strict");
 
 window.addEventListener("DOMContentLoaded", getSVGs);
@@ -147,22 +149,25 @@ function animateEvent(event) {
 }
 
 function animateKite() {
-  //SET VALUE OF ANIMATIONELEMENT TO THE ANIMATION PATH/OBJECT YOU NEED TO USE
+  //SET VALUE OF ANIMATION ELEMENT TO THE ANIMATION PATH/OBJECT YOU NEED TO USE
   animationElement = "";
   return animationElement;
 }
+
 function animateBulb() {
-  //SET VALUE OF ANIMATIONELEMENT TO THE ANIMATION PATH/OBJECT YOU NEED TO USE
+  //SET VALUE OF ANIMATION ELEMENT TO THE ANIMATION PATH/OBJECT YOU NEED TO USE
   animationElement = "";
   return animationElement;
 }
+
 function animateCityscape() {
-  //SET VALUE OF ANIMATIONELEMENT TO THE ANIMATION PATH/OBJECT YOU NEED TO USE
+  //SET VALUE OF ANIMATION ELEMENT TO THE ANIMATION PATH/OBJECT YOU NEED TO USE
   animationElement = "";
   return animationElement;
 }
+
 function animateCar() {
-  //SET VALUE OF ANIMATIONELEMENT TO THE ANIMATION PATH/OBJECT YOU NEED TO USE
+  //SET VALUE OF ANIMATION ELEMENT TO THE ANIMATION PATH/OBJECT YOU NEED TO USE
   animationElement = "";
   return animationElement;
 }

@@ -113,10 +113,11 @@ function prepareTimeline() {
 }
 
 function prepareEventListener(point, event, eventSVG) {
-  document
-    .querySelector(point)
-    .addEventListener("click", () => tranformSVG(event, eventSVG, parentSVG));
-  animateEvent(event);
+  document.querySelector(point).addEventListener("click", () => {
+    tranformSVG(event, eventSVG, parentSVG);
+    animateEvent(event);
+  });
+
   document.querySelector(point).addEventListener(
     "transitionend",
     () => {
@@ -127,10 +128,41 @@ function prepareEventListener(point, event, eventSVG) {
 }
 
 function animateEvent(event) {
-  const innerSVG = document.querySelector("#innerSVG");
+  const animationSVG = document.querySelector("#animation-container");
 
+  if (event === "kite") {
+    const animationElement = animateKite;
+  }
+  if (event === "bulb") {
+    const animationElement = animateBulb;
+  }
+  if (event === "cityscape") {
+    const animationElement = animateCityscape;
+  }
+  if (event === "car") {
+    const animationElement = animateCar;
+  }
+
+  animationSVG.innerHTML = animationElement;
+}
+
+function animateKite() {
   //SET VALUE OF ANIMATIONELEMENT TO THE ANIMATION PATH/OBJECT YOU NEED TO USE
-  const animationElement = "";
-
-  innerSVG.appendChild(animateElement);
+  animationElement = "";
+  return animationElement;
+}
+function animateBulb() {
+  //SET VALUE OF ANIMATIONELEMENT TO THE ANIMATION PATH/OBJECT YOU NEED TO USE
+  animationElement = "";
+  return animationElement;
+}
+function animateCityscape() {
+  //SET VALUE OF ANIMATIONELEMENT TO THE ANIMATION PATH/OBJECT YOU NEED TO USE
+  animationElement = "";
+  return animationElement;
+}
+function animateCar() {
+  //SET VALUE OF ANIMATIONELEMENT TO THE ANIMATION PATH/OBJECT YOU NEED TO USE
+  animationElement = "";
+  return animationElement;
 }

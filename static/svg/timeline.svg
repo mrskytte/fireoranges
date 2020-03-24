@@ -39,4 +39,5 @@
 	<circle id="eigth-circle" class="circle path fill st3 svg-elem-9" cx="1747.3" cy="776.8" r="22.8"></circle>
 	<circle id="ninth-circle" class="circle path fill st3 svg-elem-10" cx="1948.7" cy="751" r="22.8"></circle>
 </g>
+<g id="animation-container"></g>
 </svg>

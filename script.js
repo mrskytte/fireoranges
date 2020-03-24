@@ -1,6 +1,5 @@
 import "@babel/polyfill";
-import { morphSVG } from "./morph";
-import { svg, interpolateInferno, transition } from "d3";
+import { tranformSVG } from "./tranformSVG";
 ("use strict");
 
 window.addEventListener("DOMContentLoaded", getSVGs);
@@ -81,6 +80,21 @@ function drawInitialTimeline() {
         document.querySelector("#first-circle").classList.add("active");
       });
   }, 100);
+  document.querySelector("#timeline-btn").addEventListener("click", () => {
+    console.log(parentSVG);
+    tranformSVG("timeline", timelineSVG, parentSVG);
+    if (activeButtons.thirdCircle) {
+      console.log("called");
+      activeButtons.fourthCircle = true;
+    } else if (activeButtons.secondCircle) {
+      console.log("called");
+      activeButtons.thirdCircle = true;
+    } else if (activeButtons.firstCircle) {
+      console.log("called");
+      activeButtons.secondCircle = true;
+    }
+    prepareTimeline();
+  });
 }
 
 function prepareTimeline() {
@@ -101,7 +115,7 @@ function prepareTimeline() {
 function prepareEventListener(point, event, eventSVG) {
   document
     .querySelector(point)
-    .addEventListener("click", () => tranformSVG(event, eventSVG));
+    .addEventListener("click", () => tranformSVG(event, eventSVG, parentSVG));
   document.querySelector(point).addEventListener(
     "transitionend",
     () => {
@@ -109,70 +123,4 @@ function prepareEventListener(point, event, eventSVG) {
     },
     100
   );
-}
-
-document.querySelector("#timeline-btn").addEventListener("click", () => {
-  tranformSVG("timeline", timelineSVG);
-  if (activeButtons.thirdCircle) {
-    console.log("called");
-    activeButtons.fourthCircle = true;
-  } else if (activeButtons.secondCircle) {
-    console.log("called");
-    activeButtons.thirdCircle = true;
-  } else if (activeButtons.firstCircle) {
-    console.log("called");
-    activeButtons.secondCircle = true;
-  }
-  prepareTimeline();
-});
-
-function tranformSVG(selectedEvent, eventSVG) {
-  console.log(eventSVG);
-  parentSVG.classList.remove("active");
-  const originalPath = document.querySelector("#main-svg #outline");
-  originalPath.classList.remove("svg-elem-1");
-  const originalOutline = originalPath.getAttribute("d");
-  const newOutline = document
-    .querySelector(`#${selectedEvent} #outline`)
-    .getAttribute("d");
-  const innerSVG = document.querySelector("#innerSVG");
-  const innerPaths = document.querySelectorAll(`#${selectedEvent} .path`);
-  const outlineClass = document.querySelector(`#${selectedEvent} #outline`)
-    .classList[0];
-  const newStyle = document.querySelector(`#${selectedEvent} style`).innerHTML;
-
-  morphSVG(originalPath, originalOutline, newOutline);
-
-  drawSVG(
-    innerPaths,
-    innerSVG,
-    selectedEvent,
-    originalPath,
-    outlineClass,
-    newStyle
-  );
-  console.log(eventSVG);
-  document.querySelector(`#${selectedEvent}-container`).innerHTML = eventSVG;
-}
-
-function drawSVG(
-  SVGDetailPaths,
-  innerSVG,
-  SVGName,
-  originalDOMPath,
-  newOutlineClass,
-  newStyle
-) {
-  document.querySelector("#main-svg style").innerHTML = newStyle;
-  innerSVG.innerHTML = "";
-  SVGDetailPaths.forEach(oneElement => {
-    innerSVG.appendChild(oneElement);
-  });
-  parentSVG.classList.add(SVGName);
-  parentSVG.classList.remove(parentSVG.classList[0]);
-  originalDOMPath.removeAttribute("class");
-  originalDOMPath.classList.add(newOutlineClass);
-  setTimeout(() => {
-    parentSVG.classList.add("active");
-  });
 }

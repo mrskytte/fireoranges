@@ -45,8 +45,11 @@ function appendSVGs() {
 }
 
 function drawInitialTimeline() {
-  document.querySelector("#main-svg").innerHTML = SVGs[0];
+  document.querySelector("#main-svg").innerHTML = document.querySelector(
+    "#timeline-container"
+  ).innerHTML;
   parentSVG = document.querySelector("#main-svg svg");
+  parentSVG.setAttribute("id", "primarySVG");
   setTimeout(() => parentSVG.classList.add("active"), 100);
 }
 
@@ -62,6 +65,22 @@ function prepareEventListener(point, callback, event) {
     });
 }
 
+document.querySelector("#timeline-btn").addEventListener("click", () => {
+  tranformSVG("timeline");
+});
+document.querySelector("#kite-btn").addEventListener("click", () => {
+  tranformSVG("kite");
+});
+document.querySelector("#car-btn").addEventListener("click", () => {
+  tranformSVG("car");
+});
+document.querySelector("#city-btn").addEventListener("click", () => {
+  tranformSVG("cityscape");
+});
+document.querySelector("#bulb-btn").addEventListener("click", () => {
+  tranformSVG("bulb");
+});
+
 function tranformSVG(selectedEvent) {
   parentSVG.classList.remove("active");
   const originalPath = document.querySelector("#main-svg #outline");
@@ -72,8 +91,9 @@ function tranformSVG(selectedEvent) {
     .getAttribute("d");
   const innerSVG = document.querySelector("#innerSVG");
   const innerPaths = document.querySelectorAll(`#${selectedEvent} .path`);
-  const OutlineClass = document.querySelector(`#${selectedEvent} #outline`)
+  const outlineClass = document.querySelector(`#${selectedEvent} #outline`)
     .classList[0];
+  console.log(document.querySelector(`#${selectedEvent} #outline`).classList);
   const newStyle = document.querySelector(`#${selectedEvent} style`).innerHTML;
 
   morphSVG(originalPath, originalOutline, newOutline);
@@ -83,7 +103,7 @@ function tranformSVG(selectedEvent) {
     innerSVG,
     selectedEvent,
     originalPath,
-    OutlineClass,
+    outlineClass,
     newStyle
   );
 }

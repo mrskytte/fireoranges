@@ -1,30 +1,116 @@
 import "@babel/polyfill";
-import { drawSVG } from "./morph";
+import { morphSVG } from "./morph";
+import { svg, interpolateInferno, transition } from "d3";
 ("use strict");
 
-window.addEventListener("DOMContentLoaded", getSVG);
+window.addEventListener("DOMContentLoaded", getSVGs);
 
-async function getSVG() {
-  const response = await fetch("./svg/car.svg");
-  const bulbSVG = await response.text();
-  document.querySelector("#svg-container").innerHTML = bulbSVG;
+let parentSVG;
+const SVGs = [];
 
-  const parentSVG = document.querySelector("svg");
-  const originalPath = document.querySelector("#changeThis");
-  const innerSVG = document.querySelector("#pasteHere");
-  const carInline = document.querySelectorAll(".path");
-  const carOutline = document.querySelector("#outline").getAttribute("d");
-  const carOutlineClass = document.querySelector("#outline").classList[0];
-  const halfBox = originalPath.getAttribute("d");
+function getSVGs() {
+  const SVGArray = async () => {
+    const timelineSVG = getSVG("./svg/timeline.svg");
+    const kiteSVG = getSVG("./svg/kite.svg");
+    const bulbSVG = getSVG("./svg/bulb.svg");
+    const cityscapeSVG = getSVG("./svg/cityscape.svg");
+    const carSVG = getSVG("./svg/car.svg");
+
+    const array = await Promise.all([
+      timelineSVG,
+      kiteSVG,
+      bulbSVG,
+      cityscapeSVG,
+      carSVG
+    ]);
+    return array;
+  };
+  SVGArray().then(svgs => {
+    svgs.forEach(svg => SVGs.push(svg));
+    init();
+  });
+}
+
+function init() {
+  appendSVGs();
+  drawInitialTimeline();
+  prepareEventListener("#first-circle", tranformSVG, "kite");
+}
+
+function appendSVGs() {
+  for (let i = 1; i < 6; i++) {
+    document.querySelector(`.container:nth-child(${i + 1})`).innerHTML =
+      SVGs[i - 1];
+  }
+}
+
+function drawInitialTimeline() {
+  document.querySelector("#main-svg").innerHTML = SVGs[0];
+  parentSVG = document.querySelector("#main-svg svg");
+  setTimeout(() => parentSVG.classList.add("active"), 100);
+}
+
+function prepareEventListener(point, callback, event) {
+  console.log("called");
+  document
+    .querySelector(point)
+    .addEventListener("click", () => callback(event));
+  document
+    .querySelector("#main-svg svg #outline")
+    .addEventListener("transitionend", () => {
+      document.querySelector(point).classList.add("active");
+    });
+}
+
+function tranformSVG(selectedEvent) {
+  parentSVG.classList.remove("active");
+  const originalPath = document.querySelector("#main-svg #outline");
+  originalPath.classList.remove("svg-elem-1");
+  const originalOutline = originalPath.getAttribute("d");
+  const newOutline = document
+    .querySelector(`#${selectedEvent} #outline`)
+    .getAttribute("d");
+  const innerSVG = document.querySelector("#innerSVG");
+  const innerPaths = document.querySelectorAll(`#${selectedEvent} .path`);
+  const OutlineClass = document.querySelector(`#${selectedEvent} #outline`)
+    .classList[0];
+  const newStyle = document.querySelector(`#${selectedEvent} style`).innerHTML;
+
+  morphSVG(originalPath, originalOutline, newOutline);
 
   drawSVG(
-    originalPath,
+    innerPaths,
     innerSVG,
-    halfBox,
-    carOutline,
-    carOutlineClass,
-    carInline,
-    parentSVG,
-    "car"
+    selectedEvent,
+    originalPath,
+    OutlineClass,
+    newStyle
   );
+}
+
+function drawSVG(
+  SVGDetailPaths,
+  innerSVG,
+  SVGName,
+  originalDOMPath,
+  newOutlineClass,
+  newStyle
+) {
+  document.querySelector("#main-svg style").innerHTML = newStyle;
+  innerSVG.innerHTML = "";
+  SVGDetailPaths.forEach(oneElement => {
+    innerSVG.appendChild(oneElement);
+  });
+  parentSVG.classList.add(SVGName);
+  parentSVG.classList.remove(parentSVG.classList[0]);
+  originalDOMPath.classList.add(newOutlineClass);
+  setTimeout(() => {
+    parentSVG.classList.add("active");
+  });
+}
+
+async function getSVG(url) {
+  const response = await fetch(url);
+  const SVG = await response.text();
+  return SVG;
 }

@@ -116,6 +116,7 @@ function prepareEventListener(point, event, eventSVG) {
   document
     .querySelector(point)
     .addEventListener("click", () => tranformSVG(event, eventSVG, parentSVG));
+  animateEvent(event);
   document.querySelector(point).addEventListener(
     "transitionend",
     () => {
@@ -123,4 +124,13 @@ function prepareEventListener(point, event, eventSVG) {
     },
     100
   );
+}
+
+function animateEvent(event) {
+  const innerSVG = document.querySelector("#innerSVG");
+
+  //SET VALUE OF ANIMATIONELEMENT TO THE ANIMATION PATH/OBJECT YOU NEED TO USE
+  const animationElement = "";
+
+  innerSVG.appendChild(animateElement);
 }

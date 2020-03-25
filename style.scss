@@ -5,22 +5,44 @@ $yellow: #fcff36;
 $blue: #1225ff;
 
 
-.yellow_nline {
-  stroke: $yellow;
+#yellow-line {
+  stroke: none;
+  fill: transparent;
+  stroke-width: 20px;
+  stroke-dasharray: 200px 1000px;
+  stroke-dashoffset: 0px;
+  animation: strokeMove 4s linear infinite;
+}
+
+@keyframes strokeMove {
+  0% {
+    stroke: none;
+    stroke-dashoffset: 0px;
+  }
+
+  100% {
+    stroke: $yellow;
+    stroke-dashoffset: 9000px;
+  }
+}
+
+.blueline {
+  stroke: $blue;
   fill: transparent;
   stroke-width: 6px;
   stroke-dasharray: 200px 1000px;
   stroke-dashoffset: 100000px;
-  animation: strokeMove 5s linear infinite;
+  animation-delay: 2s;
+  animation: strokeMovy 10s linear infinite 10s;
 }
 
-@keyframes strokeMove {
+@keyframes strokeMovy {
   0% {
     stroke-dashoffset: 0px;
   }
 
   100% {
-    stroke-dashoffset: 10000px;
+    stroke-dashoffset: 9550px;
   }
 }
 
@@ -229,17 +251,6 @@ svg.car {
 }
 
 svg.cityscape {
-
-  .st0 {
-    fill: none;
-    stroke: #FCFF12;
-    stroke-width: 14;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-miterlimit: 10;
-  }
-
-
   .svg-elem-1 {
     stroke-dashoffset: 421.08038330078125px;
     stroke-dasharray: 421.08038330078125px;

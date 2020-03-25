@@ -8,6 +8,33 @@ h1 {
   color: $maincolor;
 }
 
+.yellow {
+  stroke: $yellow;
+  fill: transparent;
+  stroke-width: 10;
+  animation: blinker 1s linear 3;
+}
+
+.blue {
+  stroke: $blue;
+  fill: transparent;
+  stroke-width: 10;
+  animation: blinker 1s linear 3;
+}
+
+.wires {
+  stroke: $yellow;
+  fill: transparent;
+  stroke-width: 10;
+  animation: blinker 1s linear 3;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
 #main-svg svg {
   width: 100vw;
   height: 100vh;

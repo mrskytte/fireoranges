@@ -4,6 +4,28 @@ $timelineTransition: 1.5s;
 $yellow: #fcff36;
 $blue: #1225ff;
 
+.yellow {
+  stroke: $yellow;
+  fill: transparent;
+  stroke-width: 6px;
+  stroke-dasharray: 50px 1500px;
+  animation: strokeMove 25s linear infinite forwards;
+}
+
+.blue {
+  stroke: $blue;
+  fill: transparent;
+  stroke-width: 6px;
+  stroke-dasharray: 50px 2000px;
+  animation: strokeMove 50s linear infinite forwards;
+}
+
+@keyframes strokeMove {
+  to {
+    stroke-dashoffset: -50000;
+  }
+}
+
 h1 {
   color: $maincolor;
 }

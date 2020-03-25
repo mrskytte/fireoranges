@@ -36,7 +36,7 @@
 	c6.7,25.8,41.5,18.6,66.6,46.5"/> 
 	<line id="light_reflection_top" class="path st0" x1="587.7" y1="221.8" x2="595.9" y2="214.5"></line>
 	 -->
-	
+<text transform="matrix(1 0 0 1 1312.7231 434.8728)" class="path"><tspan x="0" y="0">Another game-changing invention was developed in 1879  </tspan><tspan x="0" y="39">by a man called Thomas Edison – the modern, incandes </tspan><tspan x="0" y="78">cent light bulb. By using the electricity, the incandescent  </tspan><tspan x="0" y="117">lamp makes light and heat the filament until it is hot  </tspan><tspan x="0" y="156">enough and starts glowing. Edison managed to make the  </tspan><tspan x="0" y="195">light bulbs long-lasting and they only require low voltage.  </tspan><tspan x="0" y="234">What was revolutionary in Edison’s bulbs, is that they made  </tspan><tspan x="0" y="273">indoor electric lighting easier accessible. </tspan></text>
 <path id="cable" class="path st4 svg-elem-1" d="M664.2,867.8c-2.1,19.8-7.3,42-0.1,61.2c13.2,35.4,57.9,35.9,89.4,37.1c30.1,1.3,60.4,0,90.2,5
 	c27.2,4.6,43.9,17.5,55.5,42.7c11.8,25.6,18.8,51.1,40.2,70.6c19.6,17.8,44.4,29.1,69.9,35.6c36.1,9,198.5,10.2,235.5,7.6"></path>
 <path id="bulb_bottom" class="path st4 svg-elem-2" d="M560.2,654.4c-9.4,11.2-15,23.4-13.7,38.5c1.4,16.4,10.1,27.6,23,36.4

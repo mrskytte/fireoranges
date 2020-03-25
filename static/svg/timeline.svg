@@ -30,14 +30,10 @@
 	c-36.2,2.7-58.3,54.4-81.4,77.5c-27.4,27.5-60.5,40.5-99.3,36.1"></path>
 <g id="innerSVG">
 	<circle id="first-circle" class="circle path fill st3 svg-elem-2" cx="158.5" cy="730.1" r="22.8"></circle>
-	<circle id="second-circle" class="circle path fill st3 svg-elem-3" cx="277.6" cy="954.7" r="22.8"></circle>
-	<circle id="third-circle" class="circle path fill st3 svg-elem-4" cx="518.6" cy="832" r="22.8"></circle>
-	<circle id="fourth-circle" class="circle path fill st3 svg-elem-5" cx="836.4" cy="980.6" r="22.8"></circle>
-	<circle id="fifth-circle" class="circle path fill st3 svg-elem-6" cx="964.1" cy="632" r="22.8"></circle>
-	<circle id="sixth-circle" class="circle path fill st3 svg-elem-7" cx="1251.7" cy="829.1" r="22.8"></circle>
-	<circle id="seventh-circle" class="circle path fill st3 svg-elem-8" cx="1350.8" cy="315.7" r="22.8"></circle>
-	<circle id="eigth-circle" class="circle path fill st3 svg-elem-9" cx="1747.3" cy="776.8" r="22.8"></circle>
-	<circle id="ninth-circle" class="circle path fill st3 svg-elem-10" cx="1948.7" cy="751" r="22.8"></circle>
+	<circle id="second-circle" class="circle path fill st3 svg-elem-4" cx="518.6" cy="832" r="22.8"></circle>
+	<circle id="third-circle" class="circle path fill st3 svg-elem-6" cx="964.1" cy="632" r="22.8"></circle>
+	<circle id="fourth-circle" class="circle path fill st3 svg-elem-8" cx="1350.8" cy="315.7" r="22.8"></circle>
+	<circle id="fifth-circle" class="circle path fill st3 svg-elem-10" cx="1948.7" cy="751" r="22.8"></circle>
 </g>
 <g id="animation-container"></g>
 </svg>

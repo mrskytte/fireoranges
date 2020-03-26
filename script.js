@@ -43,9 +43,9 @@ async function getSVG(url) {
 
 const activeButtons = {
   firstCircle: true,
-  secondCircle: false,
-  thirdCircle: false,
-  fourthCircle: false
+  secondCircle: true,
+  thirdCircle: true,
+  fourthCircle: true
 };
 
 function init() {
@@ -113,18 +113,7 @@ function prepareEventListener(point, event, eventSVG) {
   document.querySelector(point).addEventListener("click", () => {
     tranformSVG(event, eventSVG, parentSVG);
     animateEvent(event);
-    document.querySelector(".button").addEventListener("click", () => {
-      animateEvent("timeline");
-      tranformSVG("timeline", timelineSVG, parentSVG);
-      if (activeButtons.thirdCircle) {
-        activeButtons.fourthCircle = true;
-      } else if (activeButtons.secondCircle) {
-        activeButtons.thirdCircle = true;
-      } else if (activeButtons.firstCircle) {
-        activeButtons.secondCircle = true;
-      }
-      prepareTimeline();
-    });
+    activateTimelineButton();
   });
 
   document.querySelector(point).addEventListener(
@@ -134,6 +123,22 @@ function prepareEventListener(point, event, eventSVG) {
     },
     100
   );
+}
+
+function activateTimelineButton() {
+  const timelineButton = document.querySelector("#buttonwrap");
+  timelineButton.addEventListener("click", () => {
+    animateEvent("timeline");
+    tranformSVG("timeline", timelineSVG, parentSVG);
+    if (activeButtons.thirdCircle) {
+      activeButtons.fourthCircle = true;
+    } else if (activeButtons.secondCircle) {
+      activeButtons.thirdCircle = true;
+    } else if (activeButtons.firstCircle) {
+      activeButtons.secondCircle = true;
+    }
+    prepareTimeline();
+  });
 }
 
 function animateEvent(event) {

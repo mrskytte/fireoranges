@@ -604,19 +604,46 @@ svg text {
   }
 }
 
+#buttonwrap {
+  cursor: pointer;
+}
+
 .button {
   stroke-width: 5px;
-  fill: transparent;
+  fill: white;
   stroke: black;
-  cursor: pointer;
 }
 
 .buttontext {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 70px;
-  cursor: pointer;
+  font-size: 45px;
+}
+
+#buttonwrap:hover > .buttonshadow {
+  opacity: 1;
+}
+
+.buttonshadow {
+  transition: opacity 0.5s;
+  opacity: 0;
 }
 
 .circle {
   cursor: pointer;
+}
+
+.button-blue {
+  stroke: $blue;
+  fill: transparent;
+  stroke-width: 10px;
+  stroke-dasharray: 50px 1100px;
+  animation: strokeMove 100s linear infinite forwards;
+}
+
+.button-yellow {
+  stroke: $yellow;
+  fill: transparent;
+  stroke-width: 10px;
+  stroke-dasharray: 50px 1100px;
+  animation: strokeMove 75s linear infinite forwards;
 }

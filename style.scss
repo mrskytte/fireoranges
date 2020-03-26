@@ -661,9 +661,12 @@ svg text {
 
 .buttontext {
   @include secondary_font();
-  //font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 35px;
   cursor: pointer;
+}
+
+.frontpage-button {
+  font-size: 60px;
 }
 
 .circle {
@@ -684,4 +687,8 @@ svg text {
   stroke-width: 10px;
   stroke-dasharray: 50px 1100px;
   animation: strokeMove 75s linear infinite forwards;
+}
+
+#frontpage-title {
+  font-size: 65px;
 }

@@ -67,6 +67,33 @@ $blue: #1225ff;
   }
 }
 
+.yellow {
+  stroke: $yellow;
+  fill: transparent;
+  stroke-width: 10;
+  animation: blinker 1s linear 3;
+}
+
+.blue {
+  stroke: $blue;
+  fill: transparent;
+  stroke-width: 10;
+  animation: blinker 1s linear 3;
+}
+
+.wires {
+  stroke: $yellow;
+  fill: transparent;
+  stroke-width: 10;
+  animation: blinker 1s linear 3;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
 h1 {
   color: $maincolor;
 }

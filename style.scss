@@ -7,7 +7,7 @@ $blue: #1225ff;
 .yellow {
   stroke: $yellow;
   fill: transparent;
-  stroke-width: 6px;
+  stroke-width: 10px;
   stroke-dasharray: 50px 1500px;
   animation: strokeMove 25s linear infinite forwards;
 }
@@ -15,33 +15,33 @@ $blue: #1225ff;
 .blue {
   stroke: $blue;
   fill: transparent;
-  stroke-width: 6px;
+  stroke-width: 10px;
   stroke-dasharray: 50px 2000px;
   animation: strokeMove 50s linear infinite forwards;
 }
 
 @keyframes strokeMove {
   to {
-    stroke-dashoffset: -50000;
+    stroke-dashoffset: 50000;
   }
 }
 
 #yellow-line {
-  stroke: none;
+  stroke: $yellow;
   fill: transparent;
   stroke-width: 20px;
   stroke-dasharray: 200px 1000px;
   stroke-dashoffset: 0px;
-  animation: strokeMovee 4s linear infinite;
+  animation: strokeMove 30s linear infinite;
 }
 
 @keyframes strokeMovee {
-  0% {
-    stroke: none;
-    stroke-dashoffset: 0px;
-  }
+  // 0% {
+  //   stroke: none;
+  //   stroke-dashoffset: 0px;
+  // }
 
-  100% {
+  to {
     stroke: $yellow;
     stroke-dashoffset: 9000px;
   }
@@ -54,7 +54,7 @@ $blue: #1225ff;
   stroke-dasharray: 200px 1000px;
   stroke-dashoffset: 100000px;
   animation-delay: 2s;
-  animation: strokeMovy 10s linear infinite 10s;
+  animation: strokeMove 50s linear infinite 10s;
 }
 
 @keyframes strokeMovy {
@@ -89,8 +89,14 @@ $blue: #1225ff;
 }
 
 @keyframes blinker {
+  0% {
+    opacity: 1;
+  }
   50% {
     opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

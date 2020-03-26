@@ -564,14 +564,13 @@ svg text {
   fill: transparent;
   stroke: black;
   cursor: pointer;
-  text-align: center;
   box-shadow: 10px 10px;
 }
 
 .buttontext {
   @include secondary_font();
   //font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 80px;
+  font-size: 60px;
   cursor: pointer;
 }
 

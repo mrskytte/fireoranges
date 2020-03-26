@@ -585,8 +585,16 @@ svg.active {
 }
 
 svg text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 30px;
+  animation: textAnimation 1s 1s forwards;
+  opacity: 0;
+}
+
+@keyframes textAnimation {
+  to {
+    opacity: 1;
+  }
 }
 
 .blue-path {
@@ -605,6 +613,8 @@ svg text {
 }
 
 #buttonwrap {
+  opacity: 0;
+  animation: textAnimation 1s 1s forwards;
   cursor: pointer;
 }
 

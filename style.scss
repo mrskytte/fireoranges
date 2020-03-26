@@ -67,25 +67,25 @@ $blue: #1225ff;
   }
 }
 
-.yellow {
+.yellow-bulb {
   stroke: $yellow;
   fill: transparent;
   stroke-width: 10;
-  animation: blinker 1s linear 3;
+  animation: blinker 0.5s linear 30;
 }
 
-.blue {
+.blue-bulb {
   stroke: $blue;
   fill: transparent;
   stroke-width: 10;
-  animation: blinker 1s linear 3;
+  animation: blinker 0.5s linear 30;
 }
 
 .wires {
   stroke: $yellow;
   fill: transparent;
   stroke-width: 10;
-  animation: blinker 1s linear 3;
+  animation: blinker 0.5s linear 30;
 }
 
 @keyframes blinker {
@@ -617,4 +617,21 @@ svg text {
   to {
     stroke-dashoffset: 2000;
   }
+}
+
+.button {
+  stroke-width: 5px;
+  fill: transparent;
+  stroke: black;
+  cursor: pointer;
+}
+
+.buttontext {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 70px;
+  cursor: pointer;
+}
+
+.circle {
+  cursor: pointer;
 }

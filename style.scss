@@ -1,3 +1,21 @@
+@mixin primary_font {
+  font-family: franklin-gothic-urw, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin secondary_font {
+  font-family: franklin-gothic-urw, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+@mixin headersonly {
+  font-family: jaf-lapture, serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
 $maincolor: green;
 $transition: 1s;
 $timelineTransition: 1.5s;
@@ -70,16 +88,23 @@ $blue: #1225ff;
   0% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
 
 h1 {
+  @include primary_font();
   color: $maincolor;
+}
+
+p {
+  @include secondary_font();
 }
 
 #main-svg svg {
@@ -103,22 +128,18 @@ svg.bulb {
   .svg-elem-1 {
     stroke-dashoffset: 727.9461059570312px;
     stroke-dasharray: 727.9461059570312px;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
   }
 
   .svg-elem-2 {
     stroke-dashoffset: 633.359375px;
     stroke-dasharray: 633.359375px;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
   }
 
@@ -126,11 +147,9 @@ svg.bulb {
     stroke-dashoffset: 333.5977783203125px;
     stroke-dasharray: 333.5977783203125px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s;
   }
 
@@ -138,11 +157,9 @@ svg.bulb {
     stroke-dashoffset: 178.38328552246094px;
     stroke-dasharray: 178.38328552246094px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s;
   }
 
@@ -150,11 +167,9 @@ svg.bulb {
     stroke-dashoffset: 193.60098266601562px;
     stroke-dasharray: 193.60098266601562px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2000000000000002s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2000000000000002s;
   }
 
@@ -162,22 +177,18 @@ svg.bulb {
     stroke-dashoffset: 414.3784484863281px;
     stroke-dasharray: 414.3784484863281px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s;
   }
 
   .svg-elem-7 {
     stroke-dashoffset: 1086.9918212890625px;
     stroke-dasharray: 1086.9918212890625px;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.4000000000000001s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.4000000000000001s;
   }
 }
@@ -186,66 +197,54 @@ svg.car {
   .svg-elem-1 {
     stroke-dashoffset: 1009.322021484375px;
     stroke-dasharray: 1009.322021484375px;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
   }
 
   .svg-elem-2 {
     stroke-dashoffset: 680.0379638671875px;
     stroke-dasharray: 680.0379638671875px;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
   }
 
   .svg-elem-3 {
     stroke-dashoffset: 266.35577392578125px;
     stroke-dasharray: 266.35577392578125px;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1s;
   }
 
   .svg-elem-4 {
     stroke-dashoffset: 351.8372497558594px;
     stroke-dasharray: 351.8372497558594px;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.1s;
   }
 
   .svg-elem-5 {
     stroke-dashoffset: 259.80621337890625px;
     stroke-dasharray: 259.80621337890625px;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2000000000000002s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.2000000000000002s;
   }
 
   .svg-elem-6 {
     stroke-dashoffset: 287.86419677734375px;
     stroke-dasharray: 287.86419677734375px;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.3s;
   }
 
@@ -253,11 +252,9 @@ svg.car {
     stroke-dashoffset: 428.8203430175781px;
     stroke-dasharray: 428.8203430175781px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.4000000000000001s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.4000000000000001s;
   }
 
@@ -265,11 +262,9 @@ svg.car {
     stroke-dashoffset: 453.8945007324219px;
     stroke-dasharray: 453.8945007324219px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.35000000000000003s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.35000000000000003s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.5s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.35000000000000003s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.35000000000000003s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.5s;
   }
 
@@ -277,44 +272,36 @@ svg.car {
     stroke-dashoffset: 190.1313018798828px;
     stroke-dasharray: 190.1313018798828px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.6s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.6s;
   }
 
   .svg-elem-10 {
     stroke-dashoffset: 127.04450988769531px;
     stroke-dasharray: 127.04450988769531px;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.45s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.45s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.7000000000000002s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.45s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.45s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.7000000000000002s;
   }
 
   .svg-elem-11 {
     stroke-dashoffset: 43.559730529785156px;
     stroke-dasharray: 43.559730529785156px;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.5s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.5s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.8s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.5s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.5s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.8s;
   }
 
   .svg-elem-12 {
     stroke-dashoffset: 1749.52294921875px;
     stroke-dasharray: 1749.52294921875px;
-    -webkit-transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.55s,
+    -webkit-transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.55s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.9000000000000001s;
-    transition: stroke-dashoffset $transition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.55s,
+    transition: stroke-dashoffset $transition cubic-bezier(0.47, 0, 0.745, 0.715) 0.55s,
       fill 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 1.9000000000000001s;
   }
 }
@@ -323,75 +310,63 @@ svg.cityscape {
   .svg-elem-1 {
     stroke-dashoffset: 421.08038330078125px;
     stroke-dasharray: 421.08038330078125px;
-    -webkit-transition: stroke-dashoffset 0.7s
-      cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
+    -webkit-transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
     transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
   }
 
   .svg-elem-2 {
     stroke-dashoffset: 424.8594970703125px;
     stroke-dasharray: 424.8594970703125px;
-    -webkit-transition: stroke-dashoffset 0.7s
-      cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s;
+    -webkit-transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s;
     transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s;
   }
 
   .svg-elem-3 {
     stroke-dashoffset: 240.2471160888672px;
     stroke-dasharray: 240.2471160888672px;
-    -webkit-transition: stroke-dashoffset 0.7s
-      cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
+    -webkit-transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
     transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
   }
 
   .svg-elem-4 {
     stroke-dashoffset: 318.15582275390625px;
     stroke-dasharray: 318.15582275390625px;
-    -webkit-transition: stroke-dashoffset 0.7s
-      cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s;
-    transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
-      0.15000000000000002s;
+    -webkit-transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s;
+    transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s;
   }
 
   .svg-elem-5 {
     stroke-dashoffset: 500.41650390625px;
     stroke-dasharray: 500.41650390625px;
-    -webkit-transition: stroke-dashoffset 0.7s
-      cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
+    -webkit-transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
     transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
   }
 
   .svg-elem-6 {
     stroke-dashoffset: 400.78375244140625px;
     stroke-dasharray: 400.78375244140625px;
-    -webkit-transition: stroke-dashoffset 0.7s
-      cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s;
+    -webkit-transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s;
     transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s;
   }
 
   .svg-elem-7 {
     stroke-dashoffset: 81.10015106201172px;
     stroke-dasharray: 81.10015106201172px;
-    -webkit-transition: stroke-dashoffset 0.7s
-      cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s;
-    transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
-      0.30000000000000004s;
+    -webkit-transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s;
+    transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s;
   }
 
   .svg-elem-8 {
     stroke-dashoffset: 756.6954956054688px;
     stroke-dasharray: 756.6954956054688px;
-    -webkit-transition: stroke-dashoffset 0.7s
-      cubic-bezier(0.47, 0, 0.745, 0.715) 0.35000000000000003s;
-    transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
-      0.35000000000000003s;
+    -webkit-transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.35000000000000003s;
+    transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.35000000000000003s;
   }
 
   .svg-elem-9 {
     stroke-dashoffset: 918.4317016601562px;
     stroke-dasharray: 918.4317016601562px;
-    -webkit-transition: stroke-dashoffset 0.7s
-      cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s;
+    -webkit-transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s;
     transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s;
   }
 }
@@ -400,41 +375,35 @@ svg.kite {
   .svg-elem-1 {
     stroke-dashoffset: 581.8554077148438px;
     stroke-dasharray: 581.8554077148438px;
-    -webkit-transition: stroke-dashoffset 0.7s
-      cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
+    -webkit-transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
     transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
   }
 
   .svg-elem-2 {
     stroke-dashoffset: 396.0613708496094px;
     stroke-dasharray: 396.0613708496094px;
-    -webkit-transition: stroke-dashoffset 0.7s
-      cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s;
+    -webkit-transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s;
     transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s;
   }
 
   .svg-elem-3 {
     stroke-dashoffset: 185.40658569335938px;
     stroke-dasharray: 185.40658569335938px;
-    -webkit-transition: stroke-dashoffset 0.7s
-      cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
+    -webkit-transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
     transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
   }
 
   .svg-elem-4 {
     stroke-dashoffset: 183.0529022216797px;
     stroke-dasharray: 183.0529022216797px;
-    -webkit-transition: stroke-dashoffset 0.7s
-      cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s;
-    transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715)
-      0.15000000000000002s;
+    -webkit-transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s;
+    transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s;
   }
 
   .svg-elem-5 {
     stroke-dashoffset: 1949.2559814453125px;
     stroke-dasharray: 1949.2559814453125px;
-    -webkit-transition: stroke-dashoffset 0.7s
-      cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
+    -webkit-transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
     transition: stroke-dashoffset 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
   }
 }
@@ -443,11 +412,9 @@ svg.timeline {
   .svg-elem-1 {
     stroke-dashoffset: 4846.23681640625px;
     stroke-dasharray: 4846.23681640625px;
-    -webkit-transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
+    -webkit-transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
-    transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
+    transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0s;
   }
 
@@ -455,11 +422,9 @@ svg.timeline {
     stroke-dashoffset: 145.25662500369458px;
     stroke-dasharray: 145.25662500369458px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s,
+    -webkit-transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
-    transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s,
+    transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.05s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s;
   }
 
@@ -467,11 +432,9 @@ svg.timeline {
     stroke-dashoffset: 145.25662500369458px;
     stroke-dasharray: 145.25662500369458px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s,
+    -webkit-transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
-    transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s,
+    transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.1s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s;
   }
 
@@ -479,11 +442,9 @@ svg.timeline {
     stroke-dashoffset: 145.25662500369458px;
     stroke-dasharray: 145.25662500369458px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s,
+    -webkit-transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s;
-    transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s,
+    transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.15000000000000002s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s;
   }
 
@@ -491,11 +452,9 @@ svg.timeline {
     stroke-dashoffset: 145.25662500369458px;
     stroke-dasharray: 145.25662500369458px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s,
+    -webkit-transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s;
-    transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s,
+    transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.2s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s;
   }
 
@@ -503,11 +462,9 @@ svg.timeline {
     stroke-dashoffset: 145.25662500369458px;
     stroke-dasharray: 145.25662500369458px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s,
+    -webkit-transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.5s;
-    transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s,
+    transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.5s;
   }
 
@@ -515,11 +472,9 @@ svg.timeline {
     stroke-dashoffset: 145.25662500369458px;
     stroke-dasharray: 145.25662500369458px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s,
+    -webkit-transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.6000000000000001s;
-    transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s,
+    transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.30000000000000004s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.6000000000000001s;
   }
 
@@ -527,11 +482,9 @@ svg.timeline {
     stroke-dashoffset: 145.25662500369458px;
     stroke-dasharray: 145.25662500369458px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.35000000000000003s,
+    -webkit-transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.35000000000000003s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.7000000000000001s;
-    transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.35000000000000003s,
+    transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.35000000000000003s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.7000000000000001s;
   }
 
@@ -539,11 +492,9 @@ svg.timeline {
     stroke-dashoffset: 145.25662500369458px;
     stroke-dasharray: 145.25662500369458px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s,
+    -webkit-transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
-    transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s,
+    transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.4s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.8s;
   }
 
@@ -551,11 +502,9 @@ svg.timeline {
     stroke-dashoffset: 145.25662500369458px;
     stroke-dasharray: 145.25662500369458px;
     fill: transparent;
-    -webkit-transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.45s,
+    -webkit-transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.45s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
-    transition: stroke-dashoffset $timelineTransition
-        cubic-bezier(0.47, 0, 0.745, 0.715) 0.45s,
+    transition: stroke-dashoffset $timelineTransition cubic-bezier(0.47, 0, 0.745, 0.715) 0.45s,
       fill 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 0.9s;
   }
 }
@@ -585,7 +534,7 @@ svg.active {
 }
 
 svg text {
-  font-family: Arial, Helvetica, sans-serif;
+  @include primary_font();
   font-size: 30px;
 }
 
@@ -595,10 +544,16 @@ svg text {
   animation: dash 2s linear infinite;
 }
 
+.head {
+  @include headersonly();
+  font-size: 50px;
+}
+
 @keyframes dash {
   from {
     stroke-dashoffset: 50;
   }
+
   to {
     stroke-dashoffset: 2000;
   }
@@ -619,13 +574,25 @@ svg text {
   font-size: 45px;
 }
 
-#buttonwrap:hover > .buttonshadow {
+#buttonwrap:hover>.buttonshadow {
   opacity: 1;
 }
 
 .buttonshadow {
   transition: opacity 0.5s;
   opacity: 0;
+  stroke-width: 8px;
+  fill: transparent;
+  stroke: black;
+  cursor: pointer;
+  box-shadow: 10px 10px;
+}
+
+.buttontext {
+  @include secondary_font();
+  //font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 60px;
+  cursor: pointer;
 }
 
 .circle {

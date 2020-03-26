@@ -87,21 +87,21 @@ body {
   stroke: $yellow;
   fill: transparent;
   stroke-width: 10;
-  animation: blinker 0.5s linear 30;
+  animation: blinker 0.5s linear infinite;
 }
 
 .blue-bulb {
   stroke: $blue;
   fill: transparent;
   stroke-width: 10;
-  animation: blinker 0.5s linear 30;
+  animation: blinker 0.5s linear infinite;
 }
 
 .wires {
   stroke: $yellow;
   fill: transparent;
   stroke-width: 10;
-  animation: blinker 0.5s linear 30;
+  animation: blinker 0.5s linear infinite;
 }
 
 @keyframes blinker {
@@ -125,6 +125,15 @@ h1 {
 
 p {
   @include secondary_font();
+}
+
+#support_wires {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
 }
 
 #main-svg svg {
@@ -883,11 +892,6 @@ svg text {
 .buttonshadow {
   transition: opacity 0.5s;
   opacity: 0;
-  stroke-width: 8px;
-  fill: transparent;
-  stroke: black;
-  cursor: pointer;
-  box-shadow: 10px 10px;
 }
 
 .buttontext {

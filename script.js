@@ -2,7 +2,7 @@ import "@babel/polyfill";
 import { tranformSVG } from "./tranformSVG";
 ("use strict");
 
-window.addEventListener("DOMContentLoaded", getSVGs);
+window.addEventListener("DOMContentLoaded", init);
 
 let parentSVG;
 const SVGs = [];
@@ -12,6 +12,20 @@ let kiteSVG;
 let bulbSVG;
 let cityscapeSVG;
 let carSVG;
+
+function init() {
+  loadFrontpage();
+  getSVGs();
+}
+
+async function loadFrontpage() {
+  const response = await fetch("./svg/frontpage.svg");
+  const svg = await response.text();
+  document.querySelector("#main-svg").innerHTML = svg;
+  document
+    .querySelector("#main-svg #buttonwrap")
+    .addEventListener("click", start);
+}
 
 function getSVGs() {
   const SVGArray = async () => {
@@ -32,7 +46,6 @@ function getSVGs() {
   };
   SVGArray().then(svgs => {
     svgs.forEach(svg => SVGs.push(svg));
-    init();
   });
 }
 async function getSVG(url) {
@@ -48,7 +61,8 @@ const activeButtons = {
   fourthCircle: true
 };
 
-function init() {
+function start() {
+  console.log("start");
   appendSVGs();
   drawInitialTimeline();
   prepareTimeline();

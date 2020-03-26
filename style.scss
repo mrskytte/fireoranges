@@ -333,7 +333,17 @@ svg.active {
     }
   }
 }
+.blue-path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 1000;
+  animation: dash 2s linear infinite;
+}
 
-kite {
-  color: red;
+@keyframes dash {
+  from {
+    stroke-dashoffset: 50;
+  }
+  to {
+    stroke-dashoffset: 2000;
+  }
 }

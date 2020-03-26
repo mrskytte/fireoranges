@@ -2,7 +2,6 @@
 import { morphSVG } from "./morph";
 
 export function tranformSVG(selectedEvent, eventSVG, parentSVG) {
-  console.log(selectedEvent);
   parentSVG.classList.remove("active");
   const originalPath = document.querySelector("#main-svg #outline");
   originalPath.classList.remove("svg-elem-1");

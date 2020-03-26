@@ -46,6 +46,8 @@
 	<circle id="third-circle" class="circle path fill st3 svg-elem-6" cx="964.1" cy="632" r="22.8"></circle>
 	<circle id="fourth-circle" class="circle path fill st3 svg-elem-8" cx="1350.8" cy="315.7" r="22.8"></circle>
 	<circle id="fifth-circle" class="circle path fill st3 svg-elem-10" cx="1948.7" cy="751" r="22.8"></circle>
+	<text id="frontpage-title" transform="matrix(1.0095 0 0 1 589.7231 151.2955)" class="path head">ELECTRICITY THROUGH THE TIMES</text>
 </g>
+
 
 </svg>

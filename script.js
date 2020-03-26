@@ -11,6 +11,7 @@ let timelineSVG;
 let kiteSVG;
 let bulbSVG;
 let cityscapeSVG;
+let washingmachineSVG;
 let carSVG;
 
 function init() {
@@ -33,6 +34,7 @@ function getSVGs() {
     const kiteSVG = getSVG("./svg/kite.svg");
     const bulbSVG = getSVG("./svg/bulb.svg");
     const cityscapeSVG = getSVG("./svg/cityscape.svg");
+    const washingmachineSVG = getSVG("./svg/washingmachine.svg");
     const carSVG = getSVG("./svg/car.svg");
 
     const array = await Promise.all([
@@ -40,6 +42,7 @@ function getSVGs() {
       kiteSVG,
       bulbSVG,
       cityscapeSVG,
+      washingmachineSVG,
       carSVG
     ]);
     return array;
@@ -58,7 +61,8 @@ const activeButtons = {
   firstCircle: true,
   secondCircle: true,
   thirdCircle: true,
-  fourthCircle: true
+  fourthCircle: true,
+  fifthCircle: true
 };
 
 function start() {
@@ -77,7 +81,8 @@ function appendSVGs() {
   kiteSVG = SVGs[1];
   bulbSVG = SVGs[2];
   cityscapeSVG = SVGs[3];
-  carSVG = SVGs[4];
+  washingmachineSVG = SVGs[4];
+  carSVG = SVGs[5];
 }
 
 function drawInitialTimeline() {
@@ -94,18 +99,6 @@ function drawInitialTimeline() {
         document.querySelector("#first-circle").classList.add("active");
       });
   }, 100);
-  document.querySelector("#timeline-btn").addEventListener("click", () => {
-    animateEvent("timeline");
-    tranformSVG("timeline", timelineSVG, parentSVG);
-    if (activeButtons.thirdCircle) {
-      activeButtons.fourthCircle = true;
-    } else if (activeButtons.secondCircle) {
-      activeButtons.thirdCircle = true;
-    } else if (activeButtons.firstCircle) {
-      activeButtons.secondCircle = true;
-    }
-    prepareTimeline();
-  });
 }
 
 function prepareTimeline() {
@@ -119,7 +112,10 @@ function prepareTimeline() {
     prepareEventListener("#third-circle", "cityscape", cityscapeSVG);
   }
   if (activeButtons.fourthCircle) {
-    prepareEventListener("#fourth-circle", "car", carSVG);
+    prepareEventListener("#fourth-circle", "washingmachine", washingmachineSVG);
+  }
+  if (activeButtons.fifthCircle) {
+    prepareEventListener("#fifth-circle", "car", carSVG);
   }
 }
 
@@ -157,6 +153,7 @@ function activateTimelineButton() {
 
 function animateEvent(event) {
   const animationSVG = document.querySelector("#animation-container");
+  console.log(event);
   let animationElement;
   if (event === "timeline") {
     animationElement = animateTimeline;
@@ -169,6 +166,9 @@ function animateEvent(event) {
   }
   if (event === "cityscape") {
     animationElement = animateCityscape;
+  }
+  if (event === "washingmachine") {
+    animationElement = animateWashingMachine;
   }
   if (event === "car") {
     animationElement = animateCar;
@@ -216,6 +216,12 @@ function animateCityscape() {
   ('<path id="blue_right_top" class="blueline" d="M1838.2,749.9c2.4,13.5,1.4,27.3,4.1,40.7"/>');
   ('<path id="blue_top_top" class="blueline" d="M1039.8,259.4c0.6,10.5,1.2,20.9,1.7,31.4"/>');
   ('<path id="blue_top_right" class="blueline" d="M1533.1,534.3c3.4-0.3,6.2,1.6,9.3,2.3"/>');
+  return animationElement;
+}
+function animateWashingMachine() {
+  //SET VALUE OF ANIMATION ELEMENT TO THE ANIMATION PATH/OBJECT YOU NEED TO USE
+  animationElement =
+    '<path id="blue_3_" class="blue-machine" d="M516.6,689.1c15.2,8,34.8,6.6,48.7-3.5c12.5-9.2,20.8-24.8,35.7-29.1c17.5-5.1,34.7,7.8,47.6,20.7c12.9,12.8,27.2,27.6,45.4,27.2c14.2-0.3,26.3-9.9,36.4-19.8c24.9-24.5,44.9-54,58.3-86.3c7.8-18.6,13.3-40,6-58.8c-10.8-4.1-23.7,0.1-31.6,8.7c-7.8,8.5-11,20.6-10.8,32.2c0.1,2.5,0.4,5.3,2.1,7.1c1.5,1.5,3.7,2.1,5.8,2.2c11.9,0.6,22.2-12.7,18.7-24"/><path id="blue_2_" class="blue-machine" d="M947,690.5c-8.8-30.8-42.9-52.1-74.5-46.6c-7.3,1.3-16.2,3.3-21-2.4c-2.1-2.4-2.7-5.7-3-8.8c-2.2-25.4,22.1-49.6,47.4-47.5c2.4,0.2,5,0.7,6.6,2.5c1,1.1,1.4,2.5,1.8,3.9c2.1,8.1,0.4,17.7-5.9,23.2c-6.4,5.5-17.7,4.9-22-2.3"/><path id="blue_1_" class="blue-machine" d="M555.7,788.9c6.4-13.5,15.2-25.9,25.7-36.4c2.4-2.4,5-4.8,8.3-5.5c11.3-2.4,15.6,13.8,22.3,23.3c10.5,15,33,14.4,50.3,8.6c17.3-5.8,34.5-15.4,52.6-13.1c5.3,7.8,9.3,16.5,11.7,25.6c17.1-13.1,34.1-26.1,51.2-39.2c6.6-5.1,14.4-10.4,22.6-8.9c7.2,1.3,12.4,7.6,19.2,10.5c12.7,5.3,26.7-2.5,39.1-8.4c32.5-15.6,70.6-19.3,105.5-10.3"/><path id="blue" class="blue-machine" d="M573.5,828.4c14.3-15.2,39.4-19,57.5-8.6c7.2,4.1,13.2,10,20.3,14.3c9.5,5.8,20.6,8.4,31.6,9.9c43.9,6.2,89.8-3.2,127.8-26.1c30.9-18.6,58.7-46.7,94.6-50.1c10.6-1,24.1,2.7,25.6,13.2"/><path id="yellow" class="yellow-machine" d="M1024,34c37.8-5.8,77.6,1.8,110.6,21.1c4.6,2.7,9.3,5.9,11.4,10.7c5.4,12.8-10.2,24.4-23.7,27.5c-34.3,8.1-72.8,0.3-103.5,17.6c-5.5,3.1-10.7,7.1-13.5,12.8c-9.6,19.3,14.1,38.5,34.9,44.5c20.7,6,46.8,12.7,51.1,33.8c3.5,17.1-12.4,33.8-29.8,35.6c-17.3,1.8-34.1-8.1-45.5-21.3c-5.4-6.2-10.2-13.4-17.6-16.8c-16-7.3-33.2,6.4-46.4,18.1c-13.2,11.7-33.9,22.4-47,10.5c-8.7-7.9-8.3-21.9-4.6-33c3.7-11.2,10.1-21.6,11.3-33.3c2-19.3-12.9-38.8-32-42c-19.1-3.2-39.6,10.3-44.1,29.1c-5.9,24.8,12.2,54.5-3.5,74.6c-8,10.3-23.4,13.4-35.4,8.2c-11.9-5.2-20-17.6-21.4-30.5c-13.7,11.2-28,22.7-45.2,27.3c-17.1,4.6-38,0.3-47.4-14.8c6.7-11.4,21.8-13.9,34.8-17c12.9-3,27.8-10.9,27.8-24.2c0-13.6-16.1-24-13.8-37.4c1.6-9.2,11.6-14.7,20.8-15.2c29.6-1.5,48.6,36.7,38.6,64.6c-10,27.9-37.9,45.2-65.4,56.2c-26,10.5-53.4,17.4-81.2,20.7c-17.3,2-34.9,2.6-51.3,8.5c-18.4,6.6-34,19.3-48.2,32.8c-26.5,25.2-51.1,60.9-39.9,95.7c10.2,31.5,52.5,47.5,81,30.6s34.6-61.8,11.7-85.7c-22.9-24-67.9-20-86.2,7.6c-2.1,3.2-3.8,7.9-1.1,10.7c2.7,2.8,8.1-3.3,4.3-4.3"/>';
   return animationElement;
 }
 

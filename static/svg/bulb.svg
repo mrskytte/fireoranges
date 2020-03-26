@@ -36,9 +36,9 @@
 	c6.7,25.8,41.5,18.6,66.6,46.5"/> 
 	<line id="light_reflection_top" class="path st0" x1="587.7" y1="221.8" x2="595.9" y2="214.5"></line>
 	 -->
-<text transform="matrix(1 0 0 1 1279.4504 180.7426)" class="path head">Thomas Edison &amp; the Lightbulb</text>
-<text transform="matrix(1 0 0 1 1279.4504 134.5896)" class="path head">1879</text>
-<text transform="matrix(1 0 0 1 1312.7231 434.8728)" class="path"><tspan x="0" y="0">Another game-changing invention was developed in 1879  </tspan><tspan x="0" y="39">by a man called Thomas Edison – the modern, incandes </tspan><tspan x="0" y="78">cent light bulb. By using the electricity, the incandescent  </tspan><tspan x="0" y="117">lamp makes light and heat the filament until it is hot  </tspan><tspan x="0" y="156">enough and starts glowing. Edison managed to make the  </tspan><tspan x="0" y="195">light bulbs long-lasting and they only require low voltage.  </tspan><tspan x="0" y="234">What was revolutionary in Edison’s bulbs, is that they made  </tspan><tspan x="0" y="273">indoor electric lighting easier accessible. </tspan></text>
+<text transform="matrix(1 0 0 1 1312.7231 380.7426)" class="path head">Thomas Edison &amp; the Lightbulb</text>
+<text transform="matrix(1 0 0 1 1312.7231 334.5896)" class="path head">1879</text>
+<text transform="matrix(1 0 0 1 1312.7231 440.8728)" class="path"><tspan x="0" y="0">Another game-changing invention was developed in 1879  </tspan><tspan x="0" y="39">by a man called Thomas Edison – the modern, incandes </tspan><tspan x="0" y="78">cent light bulb. By using the electricity, the incandescent  </tspan><tspan x="0" y="117">lamp makes light and heat the filament until it is hot  </tspan><tspan x="0" y="156">enough and starts glowing. Edison managed to make the  </tspan><tspan x="0" y="195">light bulbs long-lasting and they only require low voltage.  </tspan><tspan x="0" y="234">What was revolutionary in Edison’s bulbs, is that they made  </tspan><tspan x="0" y="273">indoor electric lighting easier accessible. </tspan></text>
 <path id="yellow_x5F_line" class="button-yellow path" d="M1562,856c9.5,5.1,20.2,9.9,30.9,7.8c7.3-1.4,13.6-5.9,19.8-10
 	c13-8.8,26.7-16.9,41.8-20.8s32-3.2,45.4,4.8c12.2,7.3,20.6,20,33.4,26.2c31.3,15.1,69.9-15.9,102.2-3c13.1,5.2,23,17.7,25.1,31.6
 	c0.6,4.1,0.6,8.3-0.7,12.2c-4,12.2-18.5,18-24,29.6c-5.6,11.7-0.4,25.6,6.2,36.8s15.1,21.9,16.5,34.8c1.5,14.2-6.3,28.4-17.6,37.2
@@ -81,7 +81,7 @@
 	c-16.5-3.5-33.5-5-50.4-5c-17,0.1-33.9,2-50.4,5.3l-12.3,2.8c-4.1,1.1-8.1,2.4-12.2,3.5l-12.6,2.5c-4.2,1-8.4,2-12.6,2.9
 	c3.8-2.2,7.6-4.3,11.3-6.4c3.9-2,7.8-3.8,11.8-5.6c1-0.4,2.1-0.7,3.1-0.8c1.1-0.3,2.1-0.6,3.1-0.8l6.3-1.8l12.8-2.9
 	c17.1-3.5,34.5-5.3,51.8-5.5s34.9,1.5,52,5.2l12.8,3.1l12.6,3.6c3.9,2,7.8,3.9,11.8,6C759.5,615.5,763.2,617.7,766.9,620.1z" class="path fill svg-elem-6"></path>
-<path id="support_wires" class="path st5 svg-elem-7" d="M624,629.2c-0.1-8.8,0.6-17.8-0.7-26.6v-1.4c-3.6-34.7-3.4-69.6-5.6-104.4
+<path id="support_wires" class="path svg-elem-7" d="M624,629.2c-0.1-8.8,0.6-17.8-0.7-26.6v-1.4c-3.6-34.7-3.4-69.6-5.6-104.4
 	c-1-45.4-30.3-68.7-55.3-101.6c-13.2-20.2-21.3-65.7,9.8-72.7c23.7-0.8,25.5,29.7,36.4,44.7c9.5,16.3,26.5,9.8,30.8-4.9l-2.1-4.9
 	c-10.5-2.7-19.8-22.4-7-27.2c8.1-1.4,12.3,18.5,8.4,24.4c-1.7,3.8-1,5.9,3.4,7.8c16.1,6.9,32.2,5.9,48.3,0.4
 	c3.9-1.3,5.2-3.2,3.9-8.4c-2-7.3-1.1-22.3,8.7-23.7c11.6,5,4.3,24-7,27.3l-2.1,3.5c3.5,13.5,20.7,21.2,29.4,7.7

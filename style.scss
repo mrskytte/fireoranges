@@ -10,6 +10,12 @@
   font-style: normal;
 }
 
+@mixin headersonly {
+  font-family: jaf-lapture, serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
 $maincolor: green;
 $transition: 1s;
 $timelineTransition: 1.5s;

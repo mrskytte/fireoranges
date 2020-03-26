@@ -544,6 +544,11 @@ svg text {
   animation: dash 2s linear infinite;
 }
 
+.head {
+  @include headersonly();
+  font-size: 30px;
+}
+
 @keyframes dash {
   from {
     stroke-dashoffset: 50;

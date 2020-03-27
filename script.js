@@ -89,12 +89,7 @@ function appendSVGs() {
 }
 
 function activateFinalState() {
-  document.querySelector("#primarySVG").innerHTML = document.querySelector(
-    "#final-timeline-container svg"
-  ).innerHTML;
-  document
-    .querySelector("#main-svg svg")
-    .classList.add("active", "final-timeline");
+  document.querySelector("#main-svg svg").classList.add("final-timeline");
   document.querySelector("body").classList.add("final");
   prepareTimeline();
 }
@@ -152,18 +147,6 @@ function prepareEventListener(point, event, eventSVG) {
 function activateTimelineButton() {
   const timelineButton = document.querySelector("#buttonwrap");
   timelineButton.addEventListener("click", () => {
-<<<<<<< HEAD
-    animateEvent("timeline");
-    tranformSVG("timeline", timelineSVG, parentSVG);
-    if (activeButtons.fourthCircle) {
-      activeButtons.fifthCircle = true;
-    } else if (activeButtons.thirdCircle) {
-      activeButtons.fourthCircle = true;
-    } else if (activeButtons.secondCircle) {
-      activeButtons.thirdCircle = true;
-    } else if (activeButtons.firstCircle) {
-      activeButtons.secondCircle = true;
-=======
     if (activeButtons.fifthCircle) {
       tranformSVG("final-timeline", finalTimelineSVG, parentSVG);
       activateFinalState();
@@ -179,7 +162,6 @@ function activateTimelineButton() {
       } else if (activeButtons.firstCircle) {
         activeButtons.secondCircle = true;
       }
->>>>>>> finalTimeline
     }
     prepareTimeline();
   });

@@ -59,10 +59,10 @@ async function getSVG(url) {
 
 const activeButtons = {
   firstCircle: true,
-  secondCircle: true,
-  thirdCircle: true,
-  fourthCircle: true,
-  fifthCircle: true
+  secondCircle: false,
+  thirdCircle: false,
+  fourthCircle: false,
+  fifthCircle: false
 };
 
 function start() {
@@ -140,7 +140,9 @@ function activateTimelineButton() {
   timelineButton.addEventListener("click", () => {
     animateEvent("timeline");
     tranformSVG("timeline", timelineSVG, parentSVG);
-    if (activeButtons.thirdCircle) {
+    if (activeButtons.fourthCircle) {
+      activeButtons.fifthCircle = true;
+    } else if (activeButtons.thirdCircle) {
       activeButtons.fourthCircle = true;
     } else if (activeButtons.secondCircle) {
       activeButtons.thirdCircle = true;

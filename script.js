@@ -155,16 +155,18 @@ function activateTimelineButton() {
     if (activeButtons.fifthCircle) {
       tranformSVG("final-timeline", finalTimelineSVG, parentSVG);
       activateFinalState();
-    } else if (activeButtons.fourthCircle) {
+    } else {
       animateEvent("timeline");
       tranformSVG("timeline", timelineSVG, parentSVG);
-      activeButtons.fifthCircle = true;
-    } else if (activeButtons.thirdCircle) {
-      activeButtons.fourthCircle = true;
-    } else if (activeButtons.secondCircle) {
-      activeButtons.thirdCircle = true;
-    } else if (activeButtons.firstCircle) {
-      activeButtons.secondCircle = true;
+      if (activeButtons.fourthCircle) {
+        activeButtons.fifthCircle = true;
+      } else if (activeButtons.thirdCircle) {
+        activeButtons.fourthCircle = true;
+      } else if (activeButtons.secondCircle) {
+        activeButtons.thirdCircle = true;
+      } else if (activeButtons.firstCircle) {
+        activeButtons.secondCircle = true;
+      }
     }
     prepareTimeline();
   });

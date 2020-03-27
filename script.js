@@ -13,6 +13,7 @@ let bulbSVG;
 let cityscapeSVG;
 let washingmachineSVG;
 let carSVG;
+let finalTimelineSVG;
 
 function init() {
   loadFrontpage();
@@ -36,14 +37,15 @@ function getSVGs() {
     const cityscapeSVG = getSVG("./svg/cityscape.svg");
     const washingmachineSVG = getSVG("./svg/washingmachine.svg");
     const carSVG = getSVG("./svg/car.svg");
-
+    const finalSVG = getSVG("./svg/final-timeline.svg");
     const array = await Promise.all([
       timelineSVG,
       kiteSVG,
       bulbSVG,
       cityscapeSVG,
       washingmachineSVG,
-      carSVG
+      carSVG,
+      finalSVG
     ]);
     return array;
   };
@@ -73,7 +75,7 @@ function start() {
 }
 
 function appendSVGs() {
-  for (let i = 1; i < 7; i++) {
+  for (let i = 1; i < 8; i++) {
     document.querySelector(`.container:nth-child(${i + 1})`).innerHTML =
       SVGs[i - 1];
   }
@@ -83,6 +85,18 @@ function appendSVGs() {
   cityscapeSVG = SVGs[3];
   washingmachineSVG = SVGs[4];
   carSVG = SVGs[5];
+  finalTimelineSVG = SVGs[6];
+}
+
+function activateFinalState() {
+  document.querySelector("#primarySVG").innerHTML = document.querySelector(
+    "#final-timeline-container svg"
+  ).innerHTML;
+  document
+    .querySelector("#main-svg svg")
+    .classList.add("active", "final-timeline");
+  document.querySelector("body").classList.add("final");
+  prepareTimeline();
 }
 
 function drawInitialTimeline() {
@@ -138,6 +152,7 @@ function prepareEventListener(point, event, eventSVG) {
 function activateTimelineButton() {
   const timelineButton = document.querySelector("#buttonwrap");
   timelineButton.addEventListener("click", () => {
+<<<<<<< HEAD
     animateEvent("timeline");
     tranformSVG("timeline", timelineSVG, parentSVG);
     if (activeButtons.fourthCircle) {
@@ -148,6 +163,23 @@ function activateTimelineButton() {
       activeButtons.thirdCircle = true;
     } else if (activeButtons.firstCircle) {
       activeButtons.secondCircle = true;
+=======
+    if (activeButtons.fifthCircle) {
+      tranformSVG("final-timeline", finalTimelineSVG, parentSVG);
+      activateFinalState();
+    } else {
+      animateEvent("timeline");
+      tranformSVG("timeline", timelineSVG, parentSVG);
+      if (activeButtons.fourthCircle) {
+        activeButtons.fifthCircle = true;
+      } else if (activeButtons.thirdCircle) {
+        activeButtons.fourthCircle = true;
+      } else if (activeButtons.secondCircle) {
+        activeButtons.thirdCircle = true;
+      } else if (activeButtons.firstCircle) {
+        activeButtons.secondCircle = true;
+      }
+>>>>>>> finalTimeline
     }
     prepareTimeline();
   });
@@ -227,10 +259,3 @@ function animateCar() {
     '<path id="yellow_line" class="yellow" d="M351,615.8c20.6-22.7,21.2-69.2-6.2-83s-62-4.7-85.5,15c-35.3,29.6-49,80.6-39.4,125.7c9.6,45.1,40,84.1,78,110.3c64.4,44.5,159.4,50.9,217.9-1.2c43.7-38.9,59.3-100.5,63.8-158.9s0.5-117.9,15-174.6C620.8,346.8,711.6,264,815.9,247.3c20.1-3.2,44.2-2.6,56.3,13.8c6.7,9.1,7.9,20.9,8.2,32.1c3.5,133.1-91.7,246.1-136.5,371.5c-9.6,26.7-16.9,55.1-13.1,83.3c4.8,35.9,27.8,67.6,57,89.1c29.4,21.7,65.5,34.2,102,35.4c104.5,3.4,194.9-87.8,219-189.5s-4.9-209-48.6-304c-12.7-27.7-27-59.2-15.3-87.4c6.7-16.2,21.1-28,35.9-37.5c42.1-26.9,92.5-40.4,142.4-38.3c28.1,1.2,57.1,7.9,78.8,25.9c19.8,16.5,31.5,40.8,39.6,65.3c33.5,101.7,11.1,220.1-57.5,302.4c-34.1,41-77.9,72.7-115.5,110.5c-37.6,37.8-70.2,85.2-72.4,138.5c-3.1,74,56.5,140.6,127.1,163.1s148.2,8.2,216.7-20c69.5-28.7,135.1-73.8,172.4-139.1c37.3-65.3,40.6-153.2-5.3-212.8c-32.6-42.4-87.1-69.1-104.6-119.7c-20.5-59.3,20-122.2,65.6-165.3c43.6-41.1,96.9-76.1,156.6-81.1c68.9-5.7,137.2,31.2,179,86.3c41.7,55.1,58.9,126,58.1,195.1c-1,82.7-28.4,167.5-87.3,225.5c-58.9,58-152,83.9-228.2,51.8c-53.1-22.3-92.4-68.7-121.9-118.1c-34.3-57.4-58-121.1-69.5-187c-15-85.5-10.9-177.6-53.9-253.1c-12.7-22.3-30.1-43-53.3-53.8c-44.9-21-98.4-0.4-139.1,27.9c-51.2,35.6-95.6,88.2-101.2,150.3c-3.8,43,11.2,85.2,25.2,126C1168.1,638,1199,748.8,1176,856c-8,37.1-23.6,74.6-53.7,97.7c-51.4,39.6-125.9,25-184.9-1.9c-29.7-13.5-59-30.4-78.5-56.5c-43.9-58.4-25.6-141.8,3.2-209c28.8-67.2,67.1-136.1,57.2-208.5c-7.7-57-44.9-106.1-88.1-144c-97.2-85.3-245-124.4-358.7-63.1c-30.2,16.3-58.1,40.8-68.1,73.6c-10.6,34.9,1.1,73.3,21.1,103.8c20,30.5,47.6,55,72.9,81.2c84.5,87.2,147.3,200.2,154.4,321.4c1.5,25.4-0.5,53.5-18.3,71.7c-25.1,25.6-67.9,18.7-100.9,4.6c-120-51.1-204.4-176.5-206.6-306.9c-0.3-16.8,4.2-38.1,20.7-41.5C348.9,591,349.9,603.4,351,615.8"/><path id="blue_4" class="blue" d="M895.5,642.6c35.3-49.5,71.4-99.1,116.2-140.1c69.7-63.8,162.2-105.6,256.7-103.3c94.5,2.3,189.2,52.5,234.3,135.6c10,18.4,17.6,38.3,30.2,55c22.7,30.1,58.9,46.7,95.1,57.2c36.2,10.5,73.8,16,108.8,29.9c42.5,16.8,79.3,45.2,115.4,73.2c17.8,13.8,35.8,27.8,48.9,46.1c13,18.3,20.6,41.9,14.7,63.6c-8.4,31.3-43.1,50.2-75.5,49.4c-13.7-0.3-27.4-3.4-41.1-2.6c-54.6,3.3-97.8,67.4-150.9,54.3c-41.6-10.2-61.6-63.6-103.4-73c-25.5-5.7-51,6.8-75.9,14.4c-78.1,23.8-161.5-0.4-241.4-17.2c-7.1-1.5-14.3-2.9-21.4-1.8c-10.9,1.7-19.9,9.1-28.7,15.9c-28,21.8-59.4,40-94.1,47.5c-34.6,7.5-72.8,3.4-102.1-16.5c-22.6-15.4-39.2-39.2-63.7-51.4c-38.9-19.3-88.2-4.7-127.1-23.9c-7.2-3.5-14.1-8.5-17.5-15.7c-7.7-16.5,5.6-34.6,17.6-48.4C833.5,741.5,868.9,702.4,895.5,642.6"/><path id="blue_3" class="blue" d="M501.3,441.2c46.3-19.5,96.1-30.8,146.4-33.3c35-1.7,72.9,1.8,99.8,24.4c6.5,5.5,12.4,12.4,13.8,20.8c2.6,16.6-12.9,30-26.7,39.6c-56.8,39.6-113.7,79.2-170.5,118.8c-23.8,16.6-48.1,33.6-64.4,57.6c-16.3,23.9-23.1,56.6-9.3,82c15.4,28.4,50.6,39.4,82.8,42.6c20.8,2,42.5,1.7,61.7-6.7c27.8-12.2,46-39.4,59-66.9c16.7-35,27.8-73.4,26.1-112.1c-1.7-38.7-17.5-77.8-47.3-102.5c-30.3-25.2-71.4-33.3-110.8-35.6c-29.4-1.7-61.2,0.1-84.6,17.9c-12.2,9.3-21.1,22.3-27.6,36.2c-16.7,35.5-17.2,80.3,6.1,111.9c20.1,27.2,53.7,40.5,86,50.3c36.7,11.2,74.1,19.7,111.5,28.3c55.4,12.7,112.9,25.4,168.5,13.6"/><path id="blue_2" class="blue" d="M1050.3,896.2c-12.1-9.4-24.4-19.1-32.8-31.9c-8.4-12.8-12.3-29.5-6.5-43.7c3.7-9,10.9-16.2,19-21.8c18.9-13.2,44.3-18.6,65.7-9.8s36.2,33.4,30.2,55.7c-3.7,13.8-14.3,24.7-25.4,33.6c-8.2,6.5-17.2,12.5-27.4,14.9C1062.9,895.5,1058.1,903.2,1050.3,896.2"/><path id="blue_1" class="blue" d="M1650.5,902.5c-13.8-3-17.4-6-27.5-15.8s-16.4-24.2-14.1-38.1c2.4-14.5,13.7-26.5,27-32.7s28.5-7.5,43.2-7c21.8,0.7,46,6.6,57.8,25c13.2,20.6,4,50.5-16.1,64.4C1700.6,912.2,1673.1,911.9,1650.5,902.5"/>';
   return animationElement;
 }
-
-const darkBtn = document.querySelector("#timeline-btn-two");
-const outline = document.querySelector("#outline");
-outline.style.fill = "red";
-darkBtn.addEventListener("click", changeTimeline);
-
-function changeTimeline() {}

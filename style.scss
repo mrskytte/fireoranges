@@ -29,8 +29,8 @@ body {
   stroke: $yellow;
   fill: transparent;
   stroke-width: 10px;
-  stroke-dasharray: 50px 1500px;
-  animation: strokeMove 25s linear infinite forwards;
+  stroke-dasharray: 100px 1500px;
+  animation: strokeMove 40s linear infinite forwards;
 }
 
 .blue {
@@ -77,8 +77,7 @@ body {
   fill: transparent;
   stroke-width: 6px;
   stroke-dasharray: 200px 1000px;
-  stroke-dashoffset: 100000px;
-  animation-delay: 2s;
+  stroke-dashoffset: 1000px;
   animation: strokeMove 50s linear infinite 10s;
 }
 
@@ -119,7 +118,6 @@ body {
 
 h1 {
   @include primary_font();
-  color: $maincolor;
 }
 
 p {

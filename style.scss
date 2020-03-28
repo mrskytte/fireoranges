@@ -890,13 +890,13 @@ svg text {
   stroke: black;
 }
 
-#buttonwrap:hover > .buttonshadow {
-  opacity: 1;
-}
+// #buttonwrap:hover > .buttonshadow {
+//   opacity: 1;
+// }
 
 .buttonshadow {
   transition: opacity 0.5s;
-  opacity: 0;
+  opacity: 1;
 }
 
 .buttontext {

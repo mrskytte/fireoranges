@@ -92,6 +92,7 @@ function activateFinalState() {
   document.querySelector("#main-svg svg").classList.add("final-timeline");
   document.querySelector("body").classList.add("final");
   prepareTimeline();
+  setTimeout(() => location.reload(), 5000);
 }
 
 function drawInitialTimeline() {
